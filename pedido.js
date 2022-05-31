@@ -1,9 +1,6 @@
 import * as React from 'react';
 import {TouchableOpacity, View, Text,Modal, Alert,TextInput,StyleSheet,Button } from 'react-native';
 import { RadioButton } from 'react-native-paper';
-import { NativeBaseProvider,Icon,Box } from 'native-base';
-import { Ionicons } from '@expo/vector-icons';
-import { Rect } from 'react-native-svg';
 
  export default function Pedido({ tableList, setTableList,setTable,setTxt, table,nbrAutres,setNbrAutres }) {
     let somme=0;
@@ -161,7 +158,7 @@ import { Rect } from 'react-native-svg';
       }
     }
   //  
-    // try{
+    try{
   
     let saladeArray=convert(tableList[table].salade,"salade")
     let boissonArray=convert(tableList[table].boisson,"boisson")
@@ -303,13 +300,13 @@ import { Rect } from 'react-native-svg';
         </View>
         <Text  style={{marginTop:20,fontSize:50,marginBottom:40,fontWeight:"bold",alignSelf:'center'}}>Total : {somme}</Text> 
     </View>
-    //         }catch{ 
-    //   Alert.alert('erreur','Numéro de table invalide')
-    //   setTable(prevTable)
-    //   setTxt(prevTable.toString())
+            }catch{ 
+      Alert.alert('erreur','Numéro de table invalide')
+      setTable(prevTable)
+      setTxt(prevTable.toString())
   
-    //   return null
-    // }
+      return null
+    }
   }
   
   const styles = StyleSheet.create({
